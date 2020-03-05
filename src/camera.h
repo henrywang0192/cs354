@@ -14,6 +14,8 @@ private:
 	glm::vec3 look_ = glm::vec3(0.0f, 0.0f, -1.0f);
 	glm::vec3 up_ = glm::vec3(0.0f, 1.0, 0.0f);
 	glm::vec3 eye_ = glm::vec3(0.0f, 0.0f, camera_distance_);
+	bool mouse = true;
+	glm::vec3 center = glm::vec3(0.0f, 0.0f, 0.0f);
 	// Note: you may need additional member variables
 };
 
