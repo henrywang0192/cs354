@@ -1,0 +1,9 @@
+So far, our implementation has been to change how the view matrix is calculated based, done by Nirav. While before, all the fields 
+were filled in with 1, now, it is based off of the camera and the eye positions. This way, we can call get_view_matrix and have
+the camera move or rotate or whatever we need it to for the mouse and keyboard input implementation, instead of having it default
+to all 1's. We also have been looking through the starter code in order to better understand how everything fits together, as it
+is not the same as the previous assignment. We have a plan for completing the assignment on time in that we now have a much better
+understanding of the project and have a set schedule for when to meet up to work on it.
+
+Henry Wang (hmw756)
+Nirav Lalsinghani (Nvl225)
