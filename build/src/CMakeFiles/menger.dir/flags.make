@@ -6,5 +6,5 @@ CXX_FLAGS = --std=c++11 -g -fmax-errors=1 -DGLM_FORCE_SIZE_FUNC=1 -DGLM_FORCE_RA
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/include -I/opt/local/include -I/u/hmw756/mengerSponge/lib -I/lusr/opt/glfw-3.2.1/include 
+CXX_INCLUDES = -I/usr/local/include -I/opt/local/include -I/u/nirav/Desktop/menger/lib -I/lusr/opt/glfw-3.2.1/include 
 

@@ -8,17 +8,17 @@
 
 ../lib/debuggl.h
 
-/u/hmw756/mengerSponge/src/camera.cc
+/u/nirav/Desktop/menger/src/camera.cc
 camera.h
-/u/hmw756/mengerSponge/src/camera.h
+/u/nirav/Desktop/menger/src/camera.h
 
-/u/hmw756/mengerSponge/src/camera.h
+/u/nirav/Desktop/menger/src/camera.h
 glm/glm.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
 
-/u/hmw756/mengerSponge/src/main.cc
+/u/nirav/Desktop/menger/src/main.cc
 fstream
 -
 iostream
@@ -42,15 +42,15 @@ GLFW/glfw3.h
 debuggl.h
 -
 menger.h
-/u/hmw756/mengerSponge/src/menger.h
+/u/nirav/Desktop/menger/src/menger.h
 camera.h
-/u/hmw756/mengerSponge/src/camera.h
+/u/nirav/Desktop/menger/src/camera.h
 
-/u/hmw756/mengerSponge/src/menger.cc
+/u/nirav/Desktop/menger/src/menger.cc
 menger.h
-/u/hmw756/mengerSponge/src/menger.h
+/u/nirav/Desktop/menger/src/menger.h
 
-/u/hmw756/mengerSponge/src/menger.h
+/u/nirav/Desktop/menger/src/menger.h
 glm/glm.hpp
 -
 vector
