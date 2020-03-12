@@ -1,8 +1,8 @@
+
 #include "camera.h"
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/glm.hpp>
 #include <glm/gtx/rotate_vector.hpp>
-#define PI 3.14159265
 namespace {
 	float pan_speed = 0.1f;
 	float roll_speed = 0.1f;
@@ -31,54 +31,6 @@ glm::mat4 Camera::translate_camera(glm::vec3 trans){
 		eye_ += (up_ * pan_speed) * trans[1];
 	if (!(trans[2] == 0))
 		eye_[2] += pan_speed * trans[2];
-}
-
-// glm::mat4 Camera::rotate_camera(double rot){
-// 	/*glm::vec3 x_vec = glm::normalize(glm::cross(up_, look_));
-// 	glm::vec3 vec1 = glm::vec3(look_[0] * cos(rot), look_[1] * cos(rot), look_[2] * cos(rot));
-// 	glm::vec3 vec2 = glm::cross(up_, look_);
-// 	glm::vec3 vec3 = glm::vec3(vec2[0] * sin(rot), vec2[1] * sin(rot), vec2[2] * sin(rot));
-// 	float dotp = glm::dot(up_, look_);
-// 	float scalar = dotp * (1 - cos(rot));
-// 	glm::vec3 vec4 = glm::vec3(up_[0] * scalar, up_[1] * scalar, up_[2] * scalar);
-// 	look_ = vec1 + vec3 + vec4;*/
-// 	glm::vec3 x_vec = glm::normalize(glm::cross(look_, up_));
-// 	glm::vec3 vec1 = glm::vec3(up_[0] * cos(rot), up_[1] * cos(rot), up_[2] * cos(rot));
-// 	glm::vec3 vec2 = glm::cross(look_, up_);
-// 	glm::vec3 vec3 = glm::vec3(vec2[0] * sin(rot), vec2[1] * sin(rot), vec2[2] * sin(rot));
-// 	float dotp = glm::dot(look_, up_);
-// 	float scalar = dotp * (1 - cos(rot));
-// 	glm::vec3 vec4 = glm::vec3(look_[0] * scalar, look_[1] * scalar, look_[2] * scalar);
-// 	up_ = vec1 + vec3 + vec4;
-// }
-
-void Camera::switchMode(){
-	if(fps){
-		fps = false;
-	}
-	else{
-		fps = true;
-	}
-}
-
-void Camera::setMouse(bool m){
-	mouse = m;
-}
-
-bool Camera::getMouse(){
-	return mouse;
-}
-
-void Camera::mousePosition(double mousex, double mousey){
-	curr_mousex = mousex;
-	curr_mousey = mousey;
-}
-
-void Camera::zoom_camera(double mousey){
-	eye_ = eye_ + look_ * (zoom_speed * (float)(curr_mousey - mousey));
-	camera_distance_ = glm::length(center - eye_);
-	curr_mousex = 0.0;
-	curr_mousey = mousey;
 }
 
 void Camera::zoom_forward(){
@@ -123,6 +75,18 @@ void Camera::pan_down(){
 	eye_ = eye_ - up_ * pan_speed;
 }
 
+void Camera::zoom_camera(double mousey){
+	eye_ = eye_ + look_ * (zoom_speed * (float)(curr_mousey - mousey));
+	camera_distance_ = glm::length(center - eye_);
+	curr_mousex = 0.0;
+	curr_mousey = mousey;
+}
+
+void Camera::mousePosition(double mousex, double mousey){
+	curr_mousex = mousex;
+	curr_mousey = mousey;
+}
+
 void Camera::rotate_camera(double mousex, double mousey){
 	double x = mousex - curr_mousex;
 	double y = mousey - curr_mousey;
@@ -144,4 +108,21 @@ void Camera::rotate_camera(double mousex, double mousey){
 		up_ = glm::normalize(glm::cross(look_, -tan));
 	}
 	look_ = glm::normalize(look_);
+}
+
+void Camera::switchMode(){
+	if(fps){
+		fps = false;
+	}
+	else{
+		fps = true;
+	}
+}
+
+void Camera::setMouse(bool m){
+	mouse = m;
+}
+
+bool Camera::getMouse(){
+	return mouse;
 }

@@ -1,3 +1,4 @@
+
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -16,7 +17,7 @@
 #include "camera.h"
 
 int window_width = 800, window_height = 600;
-#define PI 3.14159265
+
 // VBO and VAO descriptors.
 enum { kVertexBuffer, kNormalBuffer, kIndexBuffer, kNumVbos };
 
@@ -115,7 +116,7 @@ KeyCallback(GLFWwindow* window,
 	} else if (key == GLFW_KEY_UP && action != GLFW_RELEASE) {
 		g_camera.pan_up();
 	} else if (key == GLFW_KEY_C && action != GLFW_RELEASE) {
-		g_camera.switchMode();
+		// FIXME: FPS mode on/off
 	}
 	if (!g_menger)
 		return ; // 0-4 only available in Menger mode.
@@ -136,18 +137,15 @@ void
 MousePosCallback(GLFWwindow* window, double mouse_x, double mouse_y)
 {
 	if (!g_mouse_pressed)
-	{
 		return;
-		//g_camera.rotate_camera(glm::vec3(0.0f, 0.0f, 1.0f));
+	if(g_camera.getMouse()){
+		g_camera.mousePosition(mouse_x, mouse_y);
+		g_camera.setMouse(false);
 	}
-	// if(g_camera.getMouse()){
-	// 	g_camera.mousePosition(mouse_x, mouse_y);
-	// 	g_camera.setMouse(false);
-	// }
 	if (g_current_button == GLFW_MOUSE_BUTTON_LEFT) {
-		//g_camera.rotate_camera(mouse_x, mouse_y);
+		g_camera.rotate_camera(mouse_x, mouse_y);
 	} else if (g_current_button == GLFW_MOUSE_BUTTON_RIGHT) {
-		//g_camera.zoom_camera(mouse_y);
+		g_camera.zoom_camera(mouse_y);
 	} else if (g_current_button == GLFW_MOUSE_BUTTON_MIDDLE) {
 		// FIXME: right drag
 	}
@@ -156,7 +154,7 @@ MousePosCallback(GLFWwindow* window, double mouse_x, double mouse_y)
 void
 MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 {
-	//g_camera.setMouse(true);
+	g_camera.setMouse(true);
 	g_mouse_pressed = (action == GLFW_PRESS);
 	g_current_button = button;
 }
