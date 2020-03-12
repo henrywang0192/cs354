@@ -11,6 +11,10 @@
 /u/nirav/Desktop/menger/src/camera.cc
 camera.h
 /u/nirav/Desktop/menger/src/camera.h
+glm/glm.hpp
+-
+glm/gtx/rotate_vector.hpp
+-
 
 /u/nirav/Desktop/menger/src/camera.h
 glm/glm.hpp
